@@ -46,10 +46,10 @@
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag (v2f input) : SV_Target
             {
                 float2 screenPoint = _FocusScreenPosition + _ScreenParams.xy / 2;
-                float2 uv = i.uv;
+                float2 uv = input.uv;
                 float2 mousePos = (screenPoint.xy / _ScreenParams);
                 float2 focus = uv - mousePos;
                 fixed aspectX = _ScreenParams.x / _ReferenceResolutionX;

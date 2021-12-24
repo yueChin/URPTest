@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
+﻿using UnityEngine.Rendering.Universal;
 
-public partial class ZoomBlurRenderFeature : ScriptableRendererFeature
+public class ZoomBlurRenderFeature : ScriptableRendererFeature
 {
     private ZoomBlurPass m_ZoomBlurPass;
 
@@ -13,6 +11,8 @@ public partial class ZoomBlurRenderFeature : ScriptableRendererFeature
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
+        m_ZoomBlurPass.Setup(renderer.cameraColorTarget);
         renderer.EnqueuePass(m_ZoomBlurPass);
     }
 }
+

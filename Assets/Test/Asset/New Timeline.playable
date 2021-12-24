@@ -33,6 +33,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846d8e6b50a64f27aad9e8ba5a1929fa, type: 3}
   m_Name: PostProcessClip
   m_EditorClassIdentifier: 
+  Template:
+    Volume: {fileID: 0}
+    Profile: {fileID: 0}
+    WeightCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Layer: 0
 --- !u!114 &3158358945703903391
 MonoBehaviour:
   m_ObjectHideFlags: 1

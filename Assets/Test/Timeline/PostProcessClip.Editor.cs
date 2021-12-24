@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEditor;
+using UnityEngine;
 
 public partial class PostProcessClip
 {
@@ -14,10 +15,10 @@ public partial class PostProcessClip
 
         private void OnEnable()
         {
-            m_PostProcessClip = new PostProcessClip();
+            m_PostProcessClip = ScriptableObject.CreateInstance<PostProcessClip>();
             m_ProfileEditor = Editor.CreateEditor(m_PostProcessClip.Template.Profile);
-            m_ProfileProperty = serializedObject.FindProperty("template.profile");
-            m_CurveProperty = serializedObject.FindProperty("template.weightCurve");
+            m_ProfileProperty = serializedObject.FindProperty("Template.Profile");
+            m_CurveProperty = serializedObject.FindProperty("Template.WeightCurve");
         }
 
         private void OnDestroy()

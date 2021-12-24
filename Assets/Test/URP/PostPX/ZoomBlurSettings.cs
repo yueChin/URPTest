@@ -19,10 +19,7 @@ public class ZoomBlurSettings : VolumeComponent,IPostProcessComponent
     [Tooltip("参考昆都分辨率")]
     public IntParameter ReferenceResolutionX = new IntParameter(1334);
 
-    public bool IsActive()
-    {
-        return false;
-    }
+    public bool IsActive() => FocusPower.value > 0 && FocusDetials.value > 0;
 
     public bool IsTileCompatible()
     {

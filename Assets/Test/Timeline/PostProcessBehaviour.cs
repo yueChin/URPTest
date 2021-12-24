@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering;
 
+[Serializable]
 public class PostProcessBehaviour : PlayableBehaviour
 {
+    [HideInInspector]
     public Volume Volume;
-
     public VolumeProfile Profile;
-
-    public AnimationCurve Weight = AnimationCurve.Linear(0f, 0f, 1f, 1f);
-    
+    public AnimationCurve WeightCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
     public int Layer;
 
     public override void OnBehaviourPlay(Playable playable, FrameData info)
@@ -43,6 +43,6 @@ public class PostProcessBehaviour : PlayableBehaviour
             return;
         }
 
-        Volume.weight = Weight.Evaluate(time);
+        Volume.weight = WeightCurve.Evaluate(time);
     }
 }
