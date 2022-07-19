@@ -1,4 +1,4 @@
-Shader "Universal Render Pipeline/Lit"
+Shader "Universal Render Pipeline/MyLit"
 {
     Properties
     {
@@ -51,8 +51,8 @@ Shader "Universal Render Pipeline/Lit"
         [HideInInspector] _AlphaClip("__clip", Float) = 0.0
         [HideInInspector] _SrcBlend("__src", Float) = 1.0
         [HideInInspector] _DstBlend("__dst", Float) = 0.0
-        [HideInInspector] _ZWrite("__zw", Float) = 1.0
-        [HideInInspector] _Cull("__cull", Float) = 2.0
+        _ZWrite("__zw", Float) = 1.0
+         _Cull("__cull", Float) = 2.0
 
         _ReceiveShadows("Receive Shadows", Float) = 1.0
         // Editmode props
@@ -68,6 +68,13 @@ Shader "Universal Render Pipeline/Lit"
         [HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
+        
+		_RefractColor("Refraction Color", Color) = (1,1,1,1)
+		_RefractAmount("Refraction Amount", Range(0, 1)) = 0.5
+		_RefractRatio("Refraction Ration", Range(0, 1)) = 0.5
+		_Cubemap("Cube Map", Cube) = "_Skybox" {}
+        
+        _AlphaGridTex ("Alpha Grid Texture", 2D) = "white" {}
     }
 
     SubShader
@@ -137,7 +144,7 @@ Shader "Universal Render Pipeline/Lit"
             #pragma fragment LitPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitForwardPass.hlsl"
+            #include "Assets/Test/Res/Shaders/MyLitForwardPass.hlsl"
             ENDHLSL
         }
 
@@ -229,7 +236,7 @@ Shader "Universal Render Pipeline/Lit"
             #pragma fragment LitGBufferPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitGBufferPass.hlsl"
+            #include "Assets/Test/Res/Shaders/MyLitGBufferPass.hlsl"
             ENDHLSL
         }
 
@@ -566,5 +573,5 @@ Shader "Universal Render Pipeline/Lit"
     }
 
     FallBack "Hidden/Universal Render Pipeline/FallbackError"
-    CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader"
+    //CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader"
 }

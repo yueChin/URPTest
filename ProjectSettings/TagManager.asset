@@ -13,10 +13,10 @@ TagManager:
   - UI
   - Test
   - FirstPersonObj
-  - 
-  - 
-  - 
-  - 
+  - sortlayer1
+  - sortlayer2
+  - sortlayer3
+  - sortlayer4
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: sort1
+    uniqueID: 3385362509
+    locked: 0
+  - name: sort2
+    uniqueID: 233670779
+    locked: 0
+  - name: sort3
+    uniqueID: 4285350625
+    locked: 0
+  - name: sort4
+    uniqueID: 3001811275
     locked: 0
